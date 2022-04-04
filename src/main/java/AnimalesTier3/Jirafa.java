@@ -13,7 +13,7 @@ import Tienda.Mascotas;
  */
 public class Jirafa extends Mascotas{
     public Jirafa() {
-        setNombreMascota("Jirafa");
+        setNombreMascota("Jirafa ");
         setUnidadesDeDanoInicial(2);
         setUnidadesDeVidaInicial(5);
         setTipos("mamifero,terrestre");

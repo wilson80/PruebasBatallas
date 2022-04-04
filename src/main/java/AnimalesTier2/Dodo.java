@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Dodo extends Mascotas{
 
     public Dodo() {
-        setNombreMascota("Dodo");
+        setNombreMascota("Dodo   ");
         setUnidadesDeDanoInicial(2);
         setUnidadesDeVidaInicial(3);
         setTipos("volador");

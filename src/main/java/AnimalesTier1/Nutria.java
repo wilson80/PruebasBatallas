@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Nutria extends Mascotas{
 
     public Nutria() {
-        setNombreMascota("Nutria");
+        setNombreMascota("Nutria ");
         setUnidadesDeDanoInicial(1);
         setUnidadesDeVidaInicial(2);
         setTipos("mamifero");

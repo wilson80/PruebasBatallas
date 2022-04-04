@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Elefante extends Mascotas{
 
     public Elefante() {
-        setNombreMascota("Elefante");
+        setNombreMascota("Elefant");
         setUnidadesDeDanoInicial(3);
         setUnidadesDeVidaInicial(5);
         setTipos("mamifero,terrrestre");

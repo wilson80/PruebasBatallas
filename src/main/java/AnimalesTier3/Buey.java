@@ -13,7 +13,7 @@ import Tienda.Mascotas;
  */
 public class Buey extends Mascotas{
         public Buey() {
-        setNombreMascota("Buey");
+        setNombreMascota("Buey   ");
         setUnidadesDeDanoInicial(1);
         setUnidadesDeVidaInicial(4);
         setTipos("mamifero");

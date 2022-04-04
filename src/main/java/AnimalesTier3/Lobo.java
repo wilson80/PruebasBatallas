@@ -13,7 +13,7 @@ import Tienda.Mascotas;
  */
 public class Lobo extends Mascotas{
     public Lobo() {
-        setNombreMascota("Lobo");
+        setNombreMascota("Lobo   ");
         setUnidadesDeDanoInicial(3);
         setUnidadesDeVidaInicial(4);
         setTipos("solitario,terrestre");

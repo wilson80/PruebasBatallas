@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Mosquito extends Mascotas{
 
     public Mosquito() {
-        setNombreMascota("Mosquito");
+        setNombreMascota("Mosquit");
         setUnidadesDeDanoInicial(2);
         setUnidadesDeVidaInicial(2);
         setTipos("volador");

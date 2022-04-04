@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Castor extends Mascotas{
 
     public Castor() {
-        setNombreMascota("Castor");
+        setNombreMascota("Castor ");
         setUnidadesDeDanoInicial(2);
         setUnidadesDeVidaInicial(2);
         setTipos("terrestre,acuatico");

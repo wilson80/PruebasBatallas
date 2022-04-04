@@ -26,7 +26,7 @@ public class ControlPartida {
         EntreBatallasIA = new MenuEntreBatallas();
         EntreBatallasJugador1 = new MenuEntreBatallas();
 //        equipo = new Mascotas[5];
-        mandarJugadores = new Batalla(jugador1,jugadorIA);
+        
 
     }
     
@@ -36,7 +36,9 @@ public class ControlPartida {
         jugador1.setOroInicial(11);
         EntreBatallasJugador1.menuEntreBatallas(jugadorIA);
         EntreBatallasIA.menuEntreBatallas(jugador1);
-        mandarJugadores.iniciandoBatalla();
+        mandarJugadores = new Batalla(jugador1,jugadorIA);
+            mandarJugadores.BatallaRonda();
+            
         
         
 

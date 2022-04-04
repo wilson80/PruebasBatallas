@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Sapo extends Mascotas{
 
     public Sapo() {
-        setNombreMascota("Sapo");
+        setNombreMascota("Sapo   ");
         setUnidadesDeDanoInicial(3);
         setUnidadesDeVidaInicial(3);
         setTipos("terrestre,acuatico");

@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Arana extends Mascotas{
 
     public Arana() {
-        setNombreMascota("Arana");
+        setNombreMascota("Arana  ");
         setUnidadesDeDanoInicial(2);
         setUnidadesDeVidaInicial(2);
         setTipos("insecto");

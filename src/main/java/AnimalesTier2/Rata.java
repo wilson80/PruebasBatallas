@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Rata extends Mascotas{
 
     public Rata() {
-        setNombreMascota("Rata");
+        setNombreMascota("Rata   ");
         setUnidadesDeDanoInicial(4);
         setUnidadesDeVidaInicial(5);
         setTipos("terrestre,solitario");

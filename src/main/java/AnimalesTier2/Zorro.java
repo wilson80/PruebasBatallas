@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Zorro extends Mascotas{
 
     public Zorro() {
-        setNombreMascota("Zorro");
+        setNombreMascota("Zorro  ");
         setUnidadesDeDanoInicial(5);
         setUnidadesDeVidaInicial(12);
         setTipos("solitario,terrestre");

@@ -13,7 +13,7 @@ import Tienda.Mascotas;
  */
 public class Conejo extends Mascotas{
     public Conejo() {
-        setNombreMascota("Conejo");
+        setNombreMascota("Conejo ");
         setUnidadesDeDanoInicial(3);
         setUnidadesDeVidaInicial(2);
         setTipos("mamifero");

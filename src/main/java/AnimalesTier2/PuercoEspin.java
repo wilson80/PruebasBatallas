@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class PuercoEspin  extends Mascotas{
 
     public PuercoEspin() {
-        setNombreMascota("Puerco Espin");
+        setNombreMascota("PuercoE");
         setUnidadesDeDanoInicial(3);
         setUnidadesDeVidaInicial(2);
         setTipos("solitario,terrestre");

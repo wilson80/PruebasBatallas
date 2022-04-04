@@ -5,6 +5,7 @@
  */
 package com.mycompany.proyecto1wilsonchay.Jugadores;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -17,6 +18,10 @@ public class Jugador2IA extends Jugadores{
 
     public Jugador2IA() {
         
+    }
+    
+    public void ran(){
+        Random random = new Random();
     }
     
     @Override
@@ -34,20 +39,32 @@ public class Jugador2IA extends Jugadores{
                 return 1;
             case 3:
                 return 1;
-            case 4:
-                return 1;
-            case 5:
-                return 2;
-            case 6:
-                return 2;
-            case 7:
-                return 1;
-            case 8:
-                return 3;
-            case 9:
-                return 3;
-            case 10:
-                return 4;
+//            case 4:
+//                return 1;
+//            case 5:
+//                return 2;
+//            case 6:
+//                return 2;
+//            case 7:
+//                return 1;
+//            case 8:
+//                return 3;
+//            case 9:
+//                return 3;
+//            case 10:
+//                return 1;
+//            case 11:
+//                return 4;
+//            case 12:
+//                return 4;
+//            case 13:
+//                return 1;
+//            case 14:
+//                return 5;
+//            case 15:
+//                return 5;
+//            case 16:
+//                return 4;
             default:
                 return 4;
         }

@@ -23,9 +23,10 @@ public class Mascotas implements Cloneable{
     private boolean aumentarExperiencia=false;
     private boolean subirNivel=false;
     private String[] tipos;
-//    String tiposAni;
+///    String tiposAni;
     private int posicion;
     private int tier;
+    
 
     public Mascotas() {
     }
@@ -48,7 +49,7 @@ public class Mascotas implements Cloneable{
 
     
     
-    public void recibirDano(int danoRecibido){
+    public void recibirDano(double danoRecibido){
         unidadesDeVidaInicial-=danoRecibido;
     } 
     public double atacar(){
@@ -60,6 +61,10 @@ public class Mascotas implements Cloneable{
     public boolean estaVivo(){
         return unidadesDeVidaInicial>0;
     }
+    public boolean haMuerto(){
+        return unidadesDeVidaInicial<=0;
+    }
+    
     public void ganarDano(int ganarDano){
         unidadesDeDanoInicial+=ganarDano;
     }

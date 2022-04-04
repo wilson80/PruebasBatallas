@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class PavoReal extends Mascotas{
 
     public PavoReal() {
-        setNombreMascota("Pavo Real");
+        setNombreMascota("Pavo Re");
         setUnidadesDeDanoInicial(2);
         setUnidadesDeVidaInicial(5);
         setTipos("domestico,volador");

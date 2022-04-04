@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Escarabajo extends Mascotas{
 
     public Escarabajo() {
-        setNombreMascota("Escarabajo");
+        setNombreMascota("Escar..");
         setUnidadesDeDanoInicial(2);
         setUnidadesDeVidaInicial(3);
         setTipos("insecto");

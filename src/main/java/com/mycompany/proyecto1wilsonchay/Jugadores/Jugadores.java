@@ -12,23 +12,30 @@ import java.util.Scanner;
  */
 //implements Cloneable VERIFICAR------------------------------------------
 public class Jugadores {
-    private Mascotas[] equipoMascotas;
+    private Mascotas[] equipoMascotas=new Mascotas[6];;
     private int victorias=0;
     private int Vidas=10;
     private int derrotas=0;
 //    private Tienda tienda;
     private int oroInicial=0;
-    private int mascotasVivas;//////
+    private int mascotasVivas;/////
+    private boolean ganoPerdio;/////
+    
     private boolean realizarFusion=false;//////
 
     public Jugadores() {
-        equipoMascotas = new Mascotas[6];
+//        equipoMascotas = new Mascotas[6];
 //        equipoMascotas[0]= new CasillaVacia();
-        equipoMascotas[1]= new CasillaVacia();
-        equipoMascotas[2]= new CasillaVacia();
-        equipoMascotas[3]= new CasillaVacia();
-        equipoMascotas[4]= new CasillaVacia();
-        equipoMascotas[5]= new CasillaVacia();
+        equipoMascotas[1]= null;
+        equipoMascotas[2]= null;
+        equipoMascotas[3]= null;
+        equipoMascotas[4]= null;
+        equipoMascotas[5]= null;
+//        equipoMascotas[1]= new CasillaVacia();
+//        equipoMascotas[2]= new CasillaVacia();
+//        equipoMascotas[3]= new CasillaVacia();
+//        equipoMascotas[4]= new CasillaVacia();
+//        equipoMascotas[5]= new CasillaVacia();
     }
     
 //    @Override
@@ -38,9 +45,12 @@ public class Jugadores {
     
     public void comprarMascotasAlimentos(int posicionIntsertar, Mascotas mascotaInsertar){
         oroInicial-=3;
-        String nombre=equipoMascotas[posicionIntsertar].getNombreMascota();
-        String nombre1=mascotaInsertar.getNombreMascota();
-        
+      String nombre="wil"; //solo para inicializar las variables
+      String nombre1="son"; 
+        if(equipoMascotas[posicionIntsertar]!=null){        
+            nombre=equipoMascotas[posicionIntsertar].getNombreMascota();
+            nombre1=mascotaInsertar.getNombreMascota();
+        }    
         if(nombre.equals(nombre1)){
             System.out.println("MascotaFusionada");
             equipoMascotas[posicionIntsertar].aumentarExperiencia(1); ////////////Fusionando Termianr////////////////////
@@ -52,6 +62,8 @@ public class Jugadores {
             equipoMascotas[posicionIntsertar]= mascotaInsertar;
             equipoMascotas[posicionIntsertar].setPosicion(posicionIntsertar);//posicion de las Mascotas
         }
+//        }
+        
         
     }
     
@@ -101,10 +113,23 @@ public class Jugadores {
      public boolean ganarPartida(){
         return victorias>=10;
     }
-    
-    public boolean ganarRonda(){///////////
-        return mascotasVivas>1;
+//
+
+    public void setGanoPerdio(boolean ganoPerdio) {
+        this.ganoPerdio = ganoPerdio;
+        if(ganoPerdio){
+            victorias++;
+        }else{
+            derrotas++;
+            Vidas--;
+        }
     }
+
+    public boolean getGanoPerdio() {
+        return ganoPerdio;
+    }
+     
+//    
     
     public void setOroInicial(int oroInicial) {
         this.oroInicial = oroInicial;
@@ -114,15 +139,16 @@ public class Jugadores {
         return oroInicial;
     }
     
-    
-    public void setVictoriasDerrotas(boolean ganoRonda) {
-        if(ganoRonda){
-            victorias++;
-        }else{
-            derrotas--;
-        }
-    }
-
+//    
+//    public void setVictoriasDerrotas(boolean ganoRonda) {
+//        if(ganoRonda){
+//            victorias++;
+//        }else{
+//            Vidas--;
+//            derrotas++;
+//        }
+//    }
+//
     public int getVictorias() {
         return victorias;
     }
@@ -148,65 +174,83 @@ public class Jugadores {
     
     
         private void imprimirNivelExp(){
-        for (int i = 1; i < 6; i++){
-            int nivel=equipoMascotas[i].getNivel();
-            int experiencia=equipoMascotas[i].getExperiencia();
-            
-            String mostrarExperiencia;
-            if(experiencia==1){
-                mostrarExperiencia="--";
-            }else if(experiencia==2){
-                mostrarExperiencia="*-";
-            }else if(experiencia==3){
-                mostrarExperiencia="---";
-            }else if(experiencia==4){
-                mostrarExperiencia="*--";
-            }else if(experiencia==5){
-                mostrarExperiencia="**-";
-            }else if(experiencia==6){
-                    mostrarExperiencia="***";
-            }else{
-                mostrarExperiencia="";
+            for (int i = 1; i < 6; i++){
+                    if(equipoMascotas[i]!=null){
+                        int nivel=equipoMascotas[i].getNivel();
+                        int experiencia=equipoMascotas[i].getExperiencia();
+
+                        String mostrarExperiencia;
+                        if(experiencia==1){
+                            mostrarExperiencia="--";
+                        }else if(experiencia==2){
+                            mostrarExperiencia="*-";
+                        }else if(experiencia==3){
+                            mostrarExperiencia="---";
+                        }else if(experiencia==4){
+                            mostrarExperiencia="*--";
+                        }else if(experiencia==5){
+                            mostrarExperiencia="**-";
+                        }else if(experiencia==6){
+                                mostrarExperiencia="***";
+                        }else{
+                            mostrarExperiencia="";
+                        }
+                        System.out.print(String.format("Lvl %d %s             ", nivel, mostrarExperiencia));
+                    }else{
+                        System.out.print("                  ");     
+                    }
             }
-            System.out.print(String.format("Lvl %d %s             ", nivel, mostrarExperiencia));
+                
         }
-    }
     
     
     public void imprimirEquipo(){
         adornos();
         
         System.out.println("");
-        System.out.print("\t\t\t\t\t\t");
+        System.out.print("\t\t\t\t\t   ");
         
         imprimirNivelExp();
         
         System.out.println("");
-        System.out.print("*******TU EQUIPO>>>*************************");
-                for (int j = 1; j < 6; j++){        //imprime el equipo
+        
+        System.out.print("       TU EQUIPO>>>                    ");
+                for (int j = 1; j < 6; j++){
+                                                                                //imprime el equipo
+                    if(equipoMascotas[j]!=null){    
                         System.out.print(String.format("  %d[%s %d]*******",j,equipoMascotas[j].getNombreMascota(), equipoMascotas[j].getPosicion()));
-                }        
-                System.out.println("**************************************************************************");
-                System.out.print("************************************************");
-                for (int j = 1; j < 6; j++){        //imprime dano/vida
-                        System.out.print(String.format("%.2f/%.2f",equipoMascotas[j].getUnidadesDeDanoInicial(), equipoMascotas[j].getUnidadesDeVidaInicial()));
-                        if(j>=1 && j<=4){
-                            System.out.print("          ");
-                        }
-                }
-                System.out.println("****************************************************************************");
-                
-                for (int i = 1; i < 6; i++){                                // Muestra si se fusiona y si sube de Nivel
-                    if(equipoMascotas[i].getAumentarExperiencia()){         
-                        System.out.print("\t\t\t\t\t");
-                        equipoMascotas[i].setAumentarExperiencia(false);
-                        System.out.println(String.format("%s---se ha Fusionado!!!", equipoMascotas[i].getNombreMascota()));
-                    }            
-                    if(equipoMascotas[i].getSubirNivel()){
-                        System.out.print("\t\t\t\t\t\t\t\t");
-                        equipoMascotas[i].setSubirNivel(false);
-                        System.out.println(String.format("%s---ha aumentado de Nivel!!!",equipoMascotas[i].getNombreMascota()));
+                    }else{
+                        System.out.printf(" %d[        ]*******",j);
                     }
+                }
+                                                
+                System.out.println("");
+                
+                System.out.print("                                           ");
+                for (int j = 1; j < 6; j++){                                        //imprime dano/vida
+                    if(equipoMascotas[j]!=null){    
+                    System.out.print(String.format("%.2f/%.2f            ",equipoMascotas[j].getUnidadesDeDanoInicial(), equipoMascotas[j].getUnidadesDeVidaInicial()));
+                    }else{
+                        System.out.print("                     ");
+                    }
+                }                               
+                
+                System.out.println("");
+                
+                for (int i = 1; i < 6; i++){
+                    if(equipoMascotas[i]!=null){
+                        // Muestra si se fusiona y si sube de Nivel
+                        if(equipoMascotas[i].getAumentarExperiencia()){         
+                            System.out.print("\t\t\t\t\t");
+                            equipoMascotas[i].setAumentarExperiencia(false);
+                            System.out.println(String.format("%s---se ha Fusionado!!!", equipoMascotas[i].getNombreMascota()));
+                        }            
+                        if(equipoMascotas[i].getSubirNivel()){
+                            System.out.print("\t\t\t\t\t\t\t\t");
+                            equipoMascotas[i].setSubirNivel(false);
+                            System.out.println(String.format("%s---ha aumentado de Nivel!!!",equipoMascotas[i].getNombreMascota()));
+                        }
+                    }    
                 }
         adornos();
         System.out.println("");        

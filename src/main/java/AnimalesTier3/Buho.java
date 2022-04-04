@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Buho extends Mascotas{
 
     public Buho() {
-        setNombreMascota("Buho");
+        setNombreMascota("Buho   ");
         setUnidadesDeDanoInicial(5);
         setUnidadesDeVidaInicial(3);
         setTipos("volador,solitario");

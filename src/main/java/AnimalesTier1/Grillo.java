@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class Grillo extends Mascotas{
 
     public Grillo() {
-        setNombreMascota("Grillo");
+        setNombreMascota("Grillo ");
         setUnidadesDeDanoInicial(1);
         setUnidadesDeVidaInicial(2); 
         setTipos("insecto");
