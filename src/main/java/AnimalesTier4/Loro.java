@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AnimalesTier2;
+package AnimalesTier4;
 
 import Tienda.Mascotas;
 
@@ -11,22 +11,20 @@ import Tienda.Mascotas;
  *
  * @author Jonwil
  */
-public class Zorro extends Mascotas{
-
-    public Zorro() {
-        setNombreMascota("Zorro  ");
+public class Loro extends Mascotas {
+    public Loro() {
+        setNombreMascota("Loro   ");
         setUnidadesDeDanoInicial(5);
-        setUnidadesDeVidaInicial(2);
-        setTipos("solitario,terrestre");
-        setTier(2);
+        setUnidadesDeVidaInicial(3);
+        setTipos("volador");
+        setTier(4);
         setDescripcionHabilidad("vacio");
         setNivel(1);
         setExperiencia(1);
 
     }
-    
-    
 }
-//15. Zorro: [5/2]
-//○ Ataque Rápido: Ataca 2 veces seguidas cada (3 turnos)(2 turnos)(1 turno)
-//○ Tipo solitario y terrestre
+//29. Loro [5/3]
+//○ Copia: al finalizar el turno de compra copia la habilidad del amigo de adelante como lvl
+//1/2/3 hasta el final de la batalla.
+//○ Tipo volador

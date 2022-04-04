@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AnimalesTier2;
+package AnimalesTier5;
 
 import Tienda.Mascotas;
 
@@ -11,22 +11,20 @@ import Tienda.Mascotas;
  *
  * @author Jonwil
  */
-public class Zorro extends Mascotas{
-
-    public Zorro() {
-        setNombreMascota("Zorro  ");
-        setUnidadesDeDanoInicial(5);
+public class Mono extends  Mascotas{
+    public Mono() {
+        setNombreMascota("Mono   ");
+        setUnidadesDeDanoInicial(1);
         setUnidadesDeVidaInicial(2);
-        setTipos("solitario,terrestre");
-        setTier(2);
+        setTipos("mamifero");
+        setTier(5);
         setDescripcionHabilidad("vacio");
         setNivel(1);
         setExperiencia(1);
 
     }
-    
-    
 }
-//15. Zorro: [5/2]
-//○ Ataque Rápido: Ataca 2 veces seguidas cada (3 turnos)(2 turnos)(1 turno)
-//○ Tipo solitario y terrestre
+//40. Mono: [1/2]
+//Turno final:
+//○ Amistad: Dar al amigo más a la derecha (+2/+3)/ (+4/+6) / (+6/+9) .
+//○ Tipo: Mamífero

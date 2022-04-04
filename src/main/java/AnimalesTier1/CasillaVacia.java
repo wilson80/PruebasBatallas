@@ -20,7 +20,7 @@ public class CasillaVacia extends Mascotas{
         setUnidadesDeDanoInicial(0);
         setNivel(0);
         setExperiencia(0);
-       
+        setTipos("solitario");
     }
     
 }

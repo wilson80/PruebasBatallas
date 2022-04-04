@@ -29,6 +29,33 @@ import AnimalesTier3.Lobo;
 import AnimalesTier3.Mapache;
 import AnimalesTier3.Oveja;
 import AnimalesTier3.Tortuga;
+import AnimalesTier4.Ardilla;
+import AnimalesTier4.Ballena;
+import AnimalesTier4.Delfin;
+import AnimalesTier4.Hipopotamo;
+import AnimalesTier4.Llama;
+import AnimalesTier4.Loro;
+import AnimalesTier4.Puma;
+import AnimalesTier4.Venado;
+import AnimalesTier5.Chompipe;
+import AnimalesTier5.Cocodrilo;
+import AnimalesTier5.Escorpion;
+import AnimalesTier5.Foca;
+import AnimalesTier5.Jaguar;
+import AnimalesTier5.Mono;
+import AnimalesTier5.Rinoceronte;
+import AnimalesTier5.Vaca;
+import AnimalesTier6.Gato;
+import AnimalesTier6.Gorila;
+import AnimalesTier6.Leopardo;
+import AnimalesTier6.Mamut;
+import AnimalesTier6.Mosca;
+import AnimalesTier6.Panda;
+import AnimalesTier6.Pulpo;
+import AnimalesTier6.Serpiente;
+import AnimalesTier6.Tigre;
+import AnimalesTier7.Camaleon;
+import AnimalesTier7.Quetzal;
 import com.mycompany.proyecto1wilsonchay.Jugadores.Jugadores;
 import controlPartida.CamposDeJuego;
 import controlPartida.MenuEntreBatallas;
@@ -44,11 +71,13 @@ public class Tienda {
     
     private Mascotas[] mascotasDisponibles;
     private Mascotas[] mascotasEnVenta;
+    private Mascotas[] mascotasEnVentaCloneABatalla;
     private Mascotas mascotas;///nose para q es
 
     public Tienda() {
-        mascotasDisponibles = new Mascotas[28];
+        mascotasDisponibles = new Mascotas[55];
         mascotasEnVenta = new Mascotas[6];    
+        mascotasEnVentaCloneABatalla = new Mascotas[6];    
         todasLasMascotasDisponibles();
         mascotasEnVenta [0] = mascotasDisponibles[0];
         mascotasEnVenta [1] = mascotasDisponibles[0];
@@ -94,12 +123,44 @@ public class Tienda {
         mascotasDisponibles[25]= new Buey();
         mascotasDisponibles[26]= new Canguro();
         mascotasDisponibles[27]= new Buho();
+        mascotasDisponibles[28]= new Venado();  //tier4 28-35
+        mascotasDisponibles[29]= new Loro();
+        mascotasDisponibles[30]= new Hipopotamo();
+        mascotasDisponibles[31]= new Delfin();
+        mascotasDisponibles[32]= new Puma();
+        mascotasDisponibles[33]= new Ballena();
+        mascotasDisponibles[34]= new Ardilla();
+        mascotasDisponibles[35]= new Llama();
+        mascotasDisponibles[36]= new Foca();     //tier5 36-42
+        mascotasDisponibles[37]= new Jaguar();     
+        mascotasDisponibles[38]= new Escorpion();     
+        mascotasDisponibles[39]= new Rinoceronte();     
+        mascotasDisponibles[40]= new Mono();     
+        mascotasDisponibles[41]= new Cocodrilo();     
+        mascotasDisponibles[42]= new Vaca();     
+        mascotasDisponibles[43]= new Chompipe();        
+        mascotasDisponibles[44]= new Panda();    //Tier6  44-52  
+        mascotasDisponibles[45]= new Gato();      
+        mascotasDisponibles[46]= new Tigre();      
+        mascotasDisponibles[47]= new Serpiente();      
+        mascotasDisponibles[48]= new Mamut();      
+        mascotasDisponibles[49]= new Leopardo();      
+        mascotasDisponibles[50]= new Gorila();      
+        mascotasDisponibles[51]= new Pulpo();      
+        mascotasDisponibles[52]= new Mosca();      
+        mascotasDisponibles[53]= new Quetzal();   //tier7 53-54      
+        mascotasDisponibles[54]= new Camaleon();         
+        
     } 
 
     
     public Mascotas[] mascotasAVender(){
         return mascotasEnVenta;
     }    
+
+    public Mascotas[] getMascotasDisponibles() {
+        return mascotasDisponibles;
+    }
     
     
     
@@ -227,7 +288,10 @@ public class Tienda {
                 System.out.println("Ingreso una opcion incorrecta");
                 break;
         }
-                CamposDeJuego camDeJuego = new CamposDeJuego(mascotasDisponibles);
+                
+    }
+    public void seleccionarCampo(){
+        CamposDeJuego camDeJuego = new CamposDeJuego(mascotasDisponibles);
                 camDeJuego.aplicarEfectosCampoJuego();
                 imprimirMascotasDisponibles();
     }
@@ -293,33 +357,3 @@ public class Tienda {
     
     
 }
-//    public void todasLasMascotasDisponibles(){
-//        mascotasDisponibles[0]= new CasillaVacia();
-//        mascotasDisponibles[1]= new Hormiga();//TIER1
-//        mascotasDisponibles[2]= new Pescado();
-//        mascotasDisponibles[3]= new Mosquito();
-//        mascotasDisponibles[4]= new Grillo();
-//        mascotasDisponibles[5]= new Castor();
-//        mascotasDisponibles[6]= new Caballo();
-//        mascotasDisponibles[7]= new Nutria();
-//        mascotasDisponibles[8]= new Escarabajo();
-//        mascotasDisponibles[9]= new Sapo();//TIER2
-//        mascotasDisponibles[10]= new Dodo();
-//        mascotasDisponibles[11]= new Elefante();
-//        mascotasDisponibles[12]= new PuercoEspin();
-//        mascotasDisponibles[13]= new PavoReal();
-//        mascotasDisponibles[14]= new Rata();
-//        mascotasDisponibles[15]= new Zorro();
-//        mascotasDisponibles[16]= new Arana();
-//        mascotasDisponibles[17]= new Camello();//TIER3
-//        mascotasDisponibles[18]= new Mapache();
-//        mascotasDisponibles[19]= new Jirafa();
-//        mascotasDisponibles[20]= new Tortuga();
-//        mascotasDisponibles[21]= new Caracol();
-//        mascotasDisponibles[22]= new Oveja();
-//        mascotasDisponibles[23]= new Conejo();
-//        mascotasDisponibles[24]= new Lobo();
-//        mascotasDisponibles[25]= new Buey();
-//        mascotasDisponibles[26]= new Canguro();
-//        mascotasDisponibles[27]= new Buho();
-//    } 

@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class MenuEntreBatallas {
     private Tienda tienda;
-    private int ronda=7;
+//    private int ronda;      //////////////;
 //    private int experiencia;
 //    private int nivel;
     private int contador=0;
@@ -28,12 +28,12 @@ public class MenuEntreBatallas {
         tienda = new Tienda();
     }
     
-    public void menuEntreBatallas(Jugadores jugadores){
+    public void menuEntreBatallas(Jugadores jugadores, int ronda){
         while(accion!=4){
             if(compras==0){
             tienda.llenarLaTiendaRondas(ronda, jugadores);  // Llena la Tienda
             }
-                mostrarEquipo_TiendaInstrucciones(jugadores);       //Muestra el equipo y la tienda
+                mostrarEquipo_TiendaInstrucciones(jugadores, ronda);       //Muestra el equipo y la tienda
             compras++;
             accion=jugadores.seleccioneAccion();
             switch(accion){
@@ -50,6 +50,8 @@ public class MenuEntreBatallas {
                     for (int i = 0; i < 40; i++){
                         System.out.println(""); 
                     }
+                    jugadores.setOroInicial(0);
+                    //mandando el Clone a Batalla
                     System.out.println("Saliendo De MenuEntreBatallas");
                     break;
             }
@@ -118,13 +120,13 @@ public class MenuEntreBatallas {
     }
     
     
-    private void mostrarEquipo_TiendaInstrucciones(Jugadores jugadores) { 
+    private void mostrarEquipo_TiendaInstrucciones(Jugadores jugadores, int ronda) { 
 //        if(jugadores instanceof Jugador1)  {             //IA_noInterfaz
             for (int i = 0; i < 28; i++){
                 System.out.println("");                //limpiar Pantalla
             }
             System.out.println("------------------------------------------------------------------------MENU ENTRE BATALLAS------------------------------------------------------------------------------------------");
-            imprimirDatosPartida(jugadores);
+            imprimirDatosPartida(jugadores, ronda);
             jugadores.imprimirEquipo();         
             tienda.imprimirMascotasAVender();
             opcionesMenu(jugadores);
@@ -134,7 +136,7 @@ public class MenuEntreBatallas {
 //        }        
         
     }
-    private void imprimirDatosPartida(Jugadores jugadores){         //Para el Modo Creativo
+    private void imprimirDatosPartida(Jugadores jugadores, int ronda){         //Para el Modo Creativo
             adornos();
             
             System.out.print(String.format("| Oro %d | Vidas/derrotas %d /%d | Victorias %d/10 | Ronda %d |",jugadores.getOroInicial()
@@ -163,10 +165,7 @@ public class MenuEntreBatallas {
     }
     
     
-    public void setRonda() {
-        this.ronda++;
-    }
-    
+
 
 
     

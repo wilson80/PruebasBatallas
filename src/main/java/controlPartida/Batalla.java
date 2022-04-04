@@ -12,50 +12,67 @@ import java.util.Scanner;
 public class Batalla {
     private Jugadores jugador1;
     private Jugadores jugadorIA;
+    
     private Mascotas[] equipoIA = new Mascotas[6];
-    private Mascotas[] equipoJugador1 =new Mascotas[6];
+    private Mascotas[] equipoJugador1 = new Mascotas[6];
+    
+    private int ronda;
+    private MenuEntreBatallas entreBatallas;
+    
+//    private  double[] guardarVidaJugador;
+//    private double[] guardarVidaIA;
+    double VidaIA1,VidaIA2,VidaIA3,VidaIA4,VidaIA5;
+    double VidaJ1,VidaJ2,VidaJ3,VidaJ4,VidaJ5;
 
-    public Batalla(Jugadores jugador1, Jugadores jugadorIA) {
+    public Batalla(Jugadores jugador1, Jugadores jugadorIA, int ronda) {
         this.jugador1 = jugador1;
         this.jugadorIA = jugadorIA;
-        equipoIA = jugadorIA.getEquipoMascotas();
-        equipoJugador1 = jugador1.getEquipoMascotas();
+        this.ronda = ronda;
+        
     }
     
-    public void BatallaRonda(){
+    
         
-      enterContinuar();
+//        
+    
+        
+    public void BatallaRonda(){
+//        guardarVida();
+        equipoIA = jugadorIA.getEquipoMascotas().clone();
+        equipoJugador1 = jugador1.getEquipoMascotas().clone();
+        guardarVida();
+        enterContinuar();
         imprimirEquipoMascotas();//imprimeEquipos
       enterContinuar();
         ubicarJugadoresPosicionAtaque(equipoJugador1);
         ubicarJugadoresPosicionAtaque(equipoIA);
+        //////////////
         imprimirEquipoMascotas();//imprimeEquipos
         System.out.println("Primer Ataque");
-        realizarAtaques();
+        realizarAtaques();                      //realizar pelea
         if(jugador1.getGanoPerdio()){
             System.out.println("Has Ganado!!!");
         }else{
             System.out.println("Has Perdido");
         }
-        
-        System.out.println("Fin de la Ronda");
-        
-        
-        
+        System.out.println("Fin de la Ronda "+ronda);
+        setVidaDanoDespuesCombate();
+        enterContinuar();
         
         
     }
 
 
     public void realizarAtaques(){  //Todos los Ataque en una Ronda
-//        boolean noHayBajas=
         boolean mascotaPataAtacarJugador1=true;
         boolean mascotaPataAtacarIA=true;
 
         while(equipoJugador1[5].estaVivo() && equipoIA[5].estaVivo()){    
-            double ataqueJ=equipoJugador1[5].atacar();
-            equipoIA[5].recibirDano(ataqueJ);
-            double ataquiIA=equipoIA[5].atacar();
+            double ataqueJ=equipoJugador1[5].atacar();    //ataque Jugador 1
+            
+            equipoIA[5].recibirDano(ataqueJ);           
+            double ataquiIA=equipoIA[5].atacar();         //ataque Jugador 1
+            
             equipoJugador1[5].recibirDano(ataquiIA);
             enterContinuar();
             imprimirEquipoMascotas();
@@ -70,29 +87,23 @@ public class Batalla {
             }
             imprimirEquipoMascotas();
             
-                if(equipoJugador1[5]==null){
+                if(equipoJugador1[5]==null){            //verifica si el jugador aun tiene Mascotas Disponibles
                     mascotaPataAtacarJugador1=false;
-                    jugador1.setGanoPerdio(false);
+                    jugador1.setGanoPerdio(false, ronda);   
                     break;
                 }
             
-                if(equipoIA[5]==null){
+                if(equipoIA[5]==null){                  //verifica si la IA aun tiene Mascotas Disponibles
                     mascotaPataAtacarIA=false;
-                    jugador1.setGanoPerdio(true);
+                    jugador1.setGanoPerdio(true, ronda);
                     break;
                 }
-                
-        
          }  
-    
-        
-        
        
     }   
     
     
 
-    
     public void ubicarJugadoresPosicionAtaque(Mascotas[] equipoMascotas){
 //        Mascotas[] equipoJugadores
         for (int j = 1; j <=4; j++){
@@ -110,15 +121,7 @@ public class Batalla {
     }    
     
     
-   
-    
-    
-    public boolean casiaVacia(){
-        
-        return false;
-    }
-    
-    
+
         
     public void imprimirEquipoMascotas(){
         for (int i = 0; i < 50; i++){
@@ -253,8 +256,77 @@ public class Batalla {
         scanner.nextLine();
     }
 
+    public void guardarVida() {
+                if(equipoIA[1]!=null){
+                    VidaIA1=equipoIA[1].getUnidadesDeVidaInicial();
+                }
+                if(equipoIA[2]!=null){
+                    VidaIA2=equipoIA[2].getUnidadesDeVidaInicial();
+                }
+                if(equipoIA[3]!=null){
+                    VidaIA3=equipoIA[3].getUnidadesDeVidaInicial();
+                }
+                if(equipoIA[4]!=null){
+                    VidaIA4=equipoIA[4].getUnidadesDeVidaInicial();
+                }
+                if(equipoIA[5]!=null){
+                    VidaIA5=equipoIA[5].getUnidadesDeVidaInicial();
+                }
+                
+                
+                if(equipoJugador1[1]!=null){
+                    VidaJ1=equipoJugador1[1].getUnidadesDeVidaInicial();
+                }
+                if(equipoJugador1[2]!=null){
+                    VidaJ2=equipoJugador1[2].getUnidadesDeVidaInicial();
+                }
+                if(equipoJugador1[3]!=null){
+                    VidaJ3=equipoJugador1[3].getUnidadesDeVidaInicial();
+                }
+                if(equipoJugador1[4]!=null){
+                    VidaJ4=equipoJugador1[4].getUnidadesDeVidaInicial();
+                }
+                if(equipoJugador1[5]!=null){
+                    VidaJ5=equipoJugador1[5].getUnidadesDeVidaInicial();
+                }
+                
+    }
     
-    
+    public void setVidaDanoDespuesCombate(){
+            if(equipoIA[1]!=null){
+                equipoIA[1].setUnidadesDeVidaInicial(VidaIA1);
+            }
+            if(equipoIA[2]!=null){
+                equipoIA[3].setUnidadesDeVidaInicial(VidaIA2);
+            }
+            if(equipoIA[3]!=null){
+                equipoIA[3].setUnidadesDeVidaInicial(VidaIA3);
+            }
+            if(equipoIA[4]!=null){
+                equipoIA[4].setUnidadesDeVidaInicial(VidaIA4);
+            }
+            if(equipoIA[5]!=null){
+                equipoIA[5].setUnidadesDeVidaInicial(VidaIA5);
+            }
+            
+            
+            if(equipoJugador1[1]!=null){
+                equipoJugador1[1].setUnidadesDeVidaInicial(VidaJ1);
+            }
+            if(equipoJugador1[2]!=null){
+                equipoJugador1[2].setUnidadesDeVidaInicial(VidaJ2);
+            }
+            if(equipoJugador1[3]!=null){
+                equipoJugador1[3].setUnidadesDeVidaInicial(VidaJ3);
+            }
+            if(equipoJugador1[4]!=null){
+                equipoJugador1[4].setUnidadesDeVidaInicial(VidaJ4);
+            }
+            if(equipoJugador1[5]!=null){
+                equipoJugador1[5].setUnidadesDeVidaInicial(VidaJ5);
+            }
+            
+    }
     
     
 }

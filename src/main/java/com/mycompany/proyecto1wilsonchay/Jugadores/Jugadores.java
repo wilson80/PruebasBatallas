@@ -10,9 +10,10 @@ import java.util.Scanner;
  *
  * @author Jonwil
  */
-//implements Cloneable VERIFICAR------------------------------------------
+
 public class Jugadores {
-    private Mascotas[] equipoMascotas=new Mascotas[6];;
+    private  Mascotas[] equipoMascotas; 
+    Mascotas[] equipoMascotasBatalla = new Mascotas[6];
     private int victorias=0;
     private int Vidas=10;
     private int derrotas=0;
@@ -24,24 +25,16 @@ public class Jugadores {
     private boolean realizarFusion=false;//////
 
     public Jugadores() {
-//        equipoMascotas = new Mascotas[6];
-//        equipoMascotas[0]= new CasillaVacia();
+        equipoMascotas = new Mascotas[6];
+        equipoMascotas[0]= null;
         equipoMascotas[1]= null;
         equipoMascotas[2]= null;
         equipoMascotas[3]= null;
         equipoMascotas[4]= null;
         equipoMascotas[5]= null;
-//        equipoMascotas[1]= new CasillaVacia();
-//        equipoMascotas[2]= new CasillaVacia();
-//        equipoMascotas[3]= new CasillaVacia();
-//        equipoMascotas[4]= new CasillaVacia();
-//        equipoMascotas[5]= new CasillaVacia();
     }
     
-//    @Override
-//    public Object clone() throws CloneNotSupportedException{
-//        return super.clone();
-//    }
+    
     
     public void comprarMascotasAlimentos(int posicionIntsertar, Mascotas mascotaInsertar){
         oroInicial-=3;
@@ -62,9 +55,6 @@ public class Jugadores {
             equipoMascotas[posicionIntsertar]= mascotaInsertar;
             equipoMascotas[posicionIntsertar].setPosicion(posicionIntsertar);//posicion de las Mascotas
         }
-//        }
-        
-        
     }
     
                                                                           //(para las mascotas que dan algo al venderse)
@@ -79,12 +69,10 @@ public class Jugadores {
         if(nivelMascotaVendida==3){
             oroInicial+=3;
         }
-               equipoMascotas[posicionaMascotaVender]= new CasillaVacia();         
+               equipoMascotas[posicionaMascotaVender]= null;  ////////////
     }
 
-//    public void pagarMascotaAlimentoEfecto(){
-//        oroInicial-=3;
-//    }
+
     public void pagarRacargaTienda(){
         oroInicial-=1;
     }
@@ -106,22 +94,58 @@ public class Jugadores {
         return accion_aRealizar;
     }
 
-    public Mascotas[] getEquipoMascotas() {////////////////////////
-        return equipoMascotas.clone();
+    public Mascotas[] getEquipoMascotas() {
+        return equipoMascotas;
     }
+       
+    
+    
+//    public Object[] cloneBatalla() throws CloneNotSupportedException{
+//        equipoMascotasBatalla = equipoMascotas.clone();
+//        return equipoMascotasBatalla;
+//    }
+    
+//    public Object cloneBatalla() throws CloneNotSupportedException{
+//        equipoMascotasBatalla = equipoMascotas.clone();
+//        return equipoMascotas;
+//    }
+    
     
      public boolean ganarPartida(){
         return victorias>=10;
     }
 //
 
-    public void setGanoPerdio(boolean ganoPerdio) {
+    public void setGanoPerdio(boolean ganoPerdio, int ronda ) {
         this.ganoPerdio = ganoPerdio;
         if(ganoPerdio){
-            victorias++;
+            if(ronda>=1 && ronda<=3){
+                victorias++;
+            }else if(ronda>=4 && ronda <=6){
+                victorias+=2;
+            }else if(ronda==7){
+                victorias+=3;
+            }
+            
         }else{
-            derrotas++;
-            Vidas--;
+            if(ronda>=1 && ronda<=3){
+               derrotas++; 
+            }
+//            else if(ronda>=4 && ronda <=6){
+//                derrotas-=2;
+//            }else if(ronda==7){
+//                derrotas-=3;
+//            }
+            
+            if(ronda>=1 && ronda<=3){
+               Vidas--; 
+            }else if(ronda>=4 && ronda <=6){
+                Vidas-=2;
+            }else if(ronda==7){
+                Vidas-=3;
+            }
+            
+            
         }
     }
 
@@ -130,7 +154,6 @@ public class Jugadores {
     }
      
 //    
-    
     public void setOroInicial(int oroInicial) {
         this.oroInicial = oroInicial;
     }
@@ -139,15 +162,6 @@ public class Jugadores {
         return oroInicial;
     }
     
-//    
-//    public void setVictoriasDerrotas(boolean ganoRonda) {
-//        if(ganoRonda){
-//            victorias++;
-//        }else{
-//            Vidas--;
-//            derrotas++;
-//        }
-//    }
 //
     public int getVictorias() {
         return victorias;
@@ -157,21 +171,12 @@ public class Jugadores {
         return derrotas;
     }
    
-    private void adornos(){
-        for (int i = 0; i < 400; i++){          //adornos
-            System.out.print("*");
-            if(i==200){
-                System.out.println("");
-            }
-        }
-    }
     
 //
-
     public int getVidas() {
         return Vidas;
     }
-    
+//    
     
         private void imprimirNivelExp(){
             for (int i = 1; i < 6; i++){
@@ -206,14 +211,12 @@ public class Jugadores {
     
     public void imprimirEquipo(){
         adornos();
-        
         System.out.println("");
         System.out.print("\t\t\t\t\t   ");
         
         imprimirNivelExp();
         
         System.out.println("");
-        
         System.out.print("       TU EQUIPO>>>                    ");
                 for (int j = 1; j < 6; j++){
                                                                                 //imprime el equipo
@@ -239,7 +242,7 @@ public class Jugadores {
                 
                 for (int i = 1; i < 6; i++){
                     if(equipoMascotas[i]!=null){
-                        // Muestra si se fusiona y si sube de Nivel
+                                                                                   // Muestra si se fusiona y si sube de Nivel
                         if(equipoMascotas[i].getAumentarExperiencia()){         
                             System.out.print("\t\t\t\t\t");
                             equipoMascotas[i].setAumentarExperiencia(false);
@@ -254,7 +257,15 @@ public class Jugadores {
                 }
         adornos();
         System.out.println("");        
-                
+    }
+    
+        private void adornos(){
+        for (int i = 0; i < 400; i++){          //adornos
+            System.out.print(".");
+            if(i==200){
+                System.out.println("");
+            }
+        }
     }
     
     

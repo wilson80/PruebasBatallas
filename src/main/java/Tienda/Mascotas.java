@@ -35,6 +35,8 @@ public class Mascotas implements Cloneable{
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
     }
+   
+
  
     public void imprimirDatos(){
         System.out.println(String.format("-Tier: %s----%s \tAtaque:%.2f   Vida:%.2f\tNombre Habilidad: %s\n\t\t\t\t\t\t\tTipos: %s"
