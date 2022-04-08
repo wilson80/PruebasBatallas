@@ -20,8 +20,10 @@ public class InicioJuego {
    
     
     public static void seleccionModo(){
-        Scanner scanner = new Scanner(System.in);
         ControlPartida con = new ControlPartida();
+//        con.ModoArena(); 
+        Scanner scanner = new Scanner(System.in);
+        
         System.out.println("Bienvenido a Super Auto Pets");
         System.out.println("1.Modo Arena\n2.Modo Versus\n3.Modo Creativo");
         System.out.println("Para Salir Escriba 4");
@@ -46,9 +48,7 @@ public class InicioJuego {
         }
             
     }
-        
 
 
-        
     
 }

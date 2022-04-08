@@ -13,9 +13,7 @@ import java.util.Scanner;
  */
 public class MenuEntreBatallas {
     private Tienda tienda;
-//    private int ronda;      //////////////;
-//    private int experiencia;
-//    private int nivel;
+    private Tienda tiendaIA;
     private int contador=0;
     private int compras=0;
     private int accion=0;
@@ -25,10 +23,18 @@ public class MenuEntreBatallas {
           
 
     public MenuEntreBatallas() {
-        tienda = new Tienda();
+       tienda = new Tienda();
     }
-    
-    public void menuEntreBatallas(Jugadores jugadores, int ronda){
+        
+        
+    public void menuEntreBatallas(Jugadores jugadores, int ronda) {
+         
+        if(ronda==1){
+            instruccionesDentroMenu(jugadores, 7);
+            int seleccioneCampo=jugadores.seleccioneAccion();
+            tienda.seleccionarCampo(seleccioneCampo);
+        }
+        
         while(accion!=4){
             if(compras==0){
             tienda.llenarLaTiendaRondas(ronda, jugadores);  // Llena la Tienda
@@ -38,6 +44,7 @@ public class MenuEntreBatallas {
             accion=jugadores.seleccioneAccion();
             switch(accion){
                 case 1://1.Comprar en la Tienda 
+//                    tienda = new Tienda();
                     comprar_enLaTienda(jugadores);
                     break;
                 case 2://2.Seleccionar una Mascota de tu Equipo 
@@ -59,11 +66,10 @@ public class MenuEntreBatallas {
         
     }
     
-    private void comprar_enLaTienda(Jugadores jugadores){
+    private void comprar_enLaTienda(Jugadores jugadores) {
         instruccionesDentroMenu(jugadores, 1);
         int posicionTienda= jugadores.seleccioneAccion();
         if(posicionTienda>0 && posicionTienda<=5){
-                int posicionInstruccion=1;
                instruccionesDentroMenu(jugadores, 2);
         }else{
               instruccionesDentroMenu(jugadores, 3);
@@ -72,7 +78,7 @@ public class MenuEntreBatallas {
         jugadores.comprarMascotasAlimentos(posicionAInsertar, tienda.darMascota(posicionTienda));
     }
     
-    private void seleccionarMascotaEquipo(Jugadores jugadores){
+    private void seleccionarMascotaEquipo(Jugadores jugadores) {
         instruccionesDentroMenu(jugadores, 4);
         int mascotaSeleccionada= jugadores.seleccioneAccion();
         instruccionesDentroMenu(jugadores, 5);
@@ -89,7 +95,7 @@ public class MenuEntreBatallas {
         
     }
       
-    private void instruccionesDentroMenu(Jugadores jugadores, int accionMenu){
+    private void instruccionesDentroMenu(Jugadores jugadores, int accionMenu) {
 //        if(jugadores instanceof Jugador1){
             switch(accionMenu){
                 case 1:
@@ -111,11 +117,10 @@ public class MenuEntreBatallas {
                     System.out.println("Ingrese la poscicion ha hacer el cambio");
                     break;
                 case 7:
+                    mostrarCamposDeJuego();
                     break;
             }
-            
-//        }
-                  
+ 
         
     }
     
@@ -165,7 +170,20 @@ public class MenuEntreBatallas {
     }
     
     
-
+    private void mostrarCamposDeJuego(){
+        System.out.println("Debido a que existen diferentes tipos de mascotas, al iniciar una batalla puede seleccionarse un\n" +
+        "tipo de campo el cual dará una bonificación a todos los animales de un tipo específico, los campos por\n" +
+        "defecto son:\n" +
+        " 1. Pantano: \n            Los animales tipo reptil ganarán (+1/+1) por cada animal reptil en batalla\n" +
+        " 2. Nubes: \n            Los animales tipo volador ganarán (+1/+1) por cada animal volador en batalla\n" +
+        " 3. Mar: \n            Los animales de tipo acuático ganarán (+1/+1) por cada animal acuático en batalla\n" +
+        " 4. Bosque: \n            Los animales tipo terrestre/mamífero tendrán un buff de (+2/0) por cada tipo terrestre\n" +
+        "            (aplica solo a terrestres) y (0/+2) por cada tipo mamífero (aplica solo a mamíferos), los animales\n" +
+        "            tipo solitario serán nerfeados tal que su daño al atacar será reducido en un 20%.\n" +
+        " 5. Granja: \n            buff a doméstico/mamífero -> nerfeo a solitario\n" +
+        " 6. <Sin campo> : \n            Los solitarios ganan una bonificación de (+3/+3) si solo hay uno en el equipo.\n" +
+        " 7. Sabana: \n            Los Desérticos ganan (0/+1) extra por cada alimento que se les de.");
+    }
 
 
     

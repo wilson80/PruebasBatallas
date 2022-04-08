@@ -12,12 +12,12 @@ import java.util.Scanner;
  */
 
 public class Jugadores {
+    
     private  Mascotas[] equipoMascotas; 
-    Mascotas[] equipoMascotasBatalla = new Mascotas[6];
+    
     private int victorias=0;
     private int Vidas=10;
     private int derrotas=0;
-//    private Tienda tienda;
     private int oroInicial=0;
     private int mascotasVivas;/////
     private boolean ganoPerdio;/////
@@ -78,13 +78,15 @@ public class Jugadores {
     }
     
     public void cambiarPosicionMascota(int mascotaSeleccionada, int mascota_a_Cambiar){
-        equipoMascotas[mascotaSeleccionada].setPosicion(mascota_a_Cambiar);
-        equipoMascotas[mascota_a_Cambiar].setPosicion(mascotaSeleccionada);   //cambiando la posicicion en el atributo de la mascota
-        
+//        if(equipoMascotas!=null){
+            equipoMascotas[mascotaSeleccionada].setPosicion(mascota_a_Cambiar);
+            equipoMascotas[mascota_a_Cambiar].setPosicion(mascotaSeleccionada);   //cambiando la posicicion en el atributo de la mascota
+//        }
         Mascotas cambiarPosicion = equipoMascotas[mascotaSeleccionada]; //camiando la posicion arreglo del equipo
         Mascotas cambiarpor = equipoMascotas[mascota_a_Cambiar];
         equipoMascotas[mascotaSeleccionada]=cambiarpor;
         equipoMascotas[mascota_a_Cambiar]=cambiarPosicion;
+        
         
     }
     
@@ -98,8 +100,7 @@ public class Jugadores {
         return equipoMascotas;
     }
        
-    
-    
+
 //    public Object[] cloneBatalla() throws CloneNotSupportedException{
 //        equipoMascotasBatalla = equipoMascotas.clone();
 //        return equipoMascotasBatalla;
@@ -111,7 +112,8 @@ public class Jugadores {
 //    }
     
     
-     public boolean ganarPartida(){
+
+    public boolean ganarPartida() {
         return victorias>=10;
     }
 //

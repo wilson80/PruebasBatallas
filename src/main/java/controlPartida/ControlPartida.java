@@ -30,20 +30,19 @@ public class ControlPartida {
         jugador1 = new Jugador1();
         jugadorIA = new Jugador2IA();
 //        ronda=entreBatallasIA.getRonda();
+
     }
     
     
 
     
-    public void ModoArena(){
+    public void ModoArena() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Modo Arena");
         System.out.println("Presione Enter para Continuar");
         scanner.nextLine();
-        Tienda tienda = new Tienda();
 //        tienda.imprimirMascotasDisponibles();
 //        tienda.seleccionarFormaOrdenar();
-        tienda.seleccionarCampo();
         do{
 //            guardarVida();
              entreBatallasIA = new MenuEntreBatallas();
@@ -59,7 +58,7 @@ public class ControlPartida {
             
 //            setVidaDanoDespuesCombate();
             
-      }while(jugador1.getVidas()>=1);           ///maneja Las Rondas      
+      }while(jugador1.getVidas()>=1 && jugador1.getVictorias()<10 );           ///maneja Las Rondas      verificacion Gano
         
     }
     
@@ -69,7 +68,7 @@ public class ControlPartida {
         Tienda tienda = new Tienda();
         tienda.imprimirMascotasDisponibles();
         tienda.seleccionarFormaOrdenar();
-        tienda.seleccionarCampo();
+//        tienda.seleccionarCampo();
     }
     
     

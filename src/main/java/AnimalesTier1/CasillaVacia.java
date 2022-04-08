@@ -14,7 +14,7 @@ import Tienda.Mascotas;
 public class CasillaVacia extends Mascotas{
 
     public CasillaVacia() {
-        setNombreMascota("vacio");
+        setNombreMascota("       ");
         setPosicion(0);
         setUnidadesDeDanoInicial(0);
         setUnidadesDeDanoInicial(0);

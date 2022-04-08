@@ -72,19 +72,30 @@ public class Tienda {
     private Mascotas[] mascotasDisponibles;
     private Mascotas[] mascotasEnVenta;
     private Mascotas[] mascotasEnVentaCloneABatalla;
+    
+    private static Mascotas mascotasCopiaTienda1;
+    private static Mascotas mascotasCopiaTienda2;
+    private static Mascotas mascotasCopiaTienda3;
+    private static Mascotas mascotasCopiaTienda4;
+    private static Mascotas mascotasCopiaTienda5;
+    
     private Mascotas mascotas;///nose para q es
 
     public Tienda() {
+//        mascotas = new Mascotas();
         mascotasDisponibles = new Mascotas[55];
         mascotasEnVenta = new Mascotas[6];    
         mascotasEnVentaCloneABatalla = new Mascotas[6];    
         todasLasMascotasDisponibles();
+        
         mascotasEnVenta [0] = mascotasDisponibles[0];
         mascotasEnVenta [1] = mascotasDisponibles[0];
         mascotasEnVenta [2] = mascotasDisponibles[0];
         mascotasEnVenta [3] = mascotasDisponibles[0];
         mascotasEnVenta [4] = mascotasDisponibles[0];
         mascotasEnVenta [5] = mascotasDisponibles[0];
+        
+        
     }
 
     
@@ -167,6 +178,13 @@ public class Tienda {
     public void llenarLaTiendaRondas(int ronda, Jugadores jugadores) { //crea una copia por si en el equipo se usan dos mascotas iguales    
         jugadores.pagarRacargaTienda();
         if(ronda<=3){
+//            mascotasCopiaTienda1=seleccionarMascotaPorTier(ronda);
+//            mascotasCopiaTienda2=seleccionarMascotaPorTier(ronda);
+//            mascotasCopiaTienda3=seleccionarMascotaPorTier(ronda);
+//            mascotasEnVenta[1]=mascotasCopiaTienda1;
+//            mascotasEnVenta[2]=mascotasCopiaTienda2;
+//            mascotasEnVenta[3]=mascotasCopiaTienda3;
+            
             for (int i = 1; i < 4; i++) { //Ronda 1, 2, y 3 habrán únicamente 3 animales en tienda
                 try{
                     mascotasEnVenta[i]= (Mascotas)seleccionarMascotaPorTier(ronda).clone();
@@ -196,6 +214,7 @@ public class Tienda {
     private Mascotas seleccionarMascotaPorTier(int ronda) {
         Random random = new Random();
         int mascotaAleatoriaporRonda;
+//        mascotas = new Mascotas();
         if(ronda==1){ // Tier1
             mascotaAleatoriaporRonda = random.nextInt(8)+1;
             return mascotasDisponibles[mascotaAleatoriaporRonda];
@@ -209,19 +228,19 @@ public class Tienda {
             return mascotasDisponibles[mascotaAleatoriaporRonda];
         }
         if(ronda==6 || ronda==7){// Desbloque Tier4
-            mascotaAleatoriaporRonda = random.nextInt(27)+1;
+            mascotaAleatoriaporRonda = random.nextInt(35)+1;
             return mascotasDisponibles[mascotaAleatoriaporRonda];
         }
         if(ronda==8 || ronda==9){// Desbloque Tier5
-            mascotaAleatoriaporRonda = random.nextInt(27)+1;
+            mascotaAleatoriaporRonda = random.nextInt(43)+1;
             return mascotasDisponibles[mascotaAleatoriaporRonda];
         } 
         if(ronda==10 || ronda==11){//Desbloque Tier6
-            mascotaAleatoriaporRonda = random.nextInt(27)+1;
+            mascotaAleatoriaporRonda = random.nextInt(52)+1;
             return mascotasDisponibles[mascotaAleatoriaporRonda];
         }
         if(ronda>=12){            // DesbloqueTier7
-            mascotaAleatoriaporRonda = random.nextInt(27)+1;
+            mascotaAleatoriaporRonda = random.nextInt(54)+1;
             return mascotasDisponibles[mascotaAleatoriaporRonda];
         }else{
             return mascotasDisponibles[0];
@@ -290,11 +309,14 @@ public class Tienda {
         }
                 
     }
-    public void seleccionarCampo(){
-        CamposDeJuego camDeJuego = new CamposDeJuego(mascotasDisponibles);
-                camDeJuego.aplicarEfectosCampoJuego();
-                imprimirMascotasDisponibles();
+    
+    public void seleccionarCampo(int campoSeleccinado){
+        CamposDeJuego camDeJuego = new CamposDeJuego(mascotasDisponibles, campoSeleccinado);
+        camDeJuego.aplicarEfectosCampoJuego();
+//        imprimirMascotasDisponibles();
     }
+    
+    
     
     private void ordenarMascotasPorTier(Mascotas[] ArregloMascotas){
         System.out.println("Mascotas Ordenadas por Tier de Menor a Mayor");

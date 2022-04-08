@@ -20,7 +20,7 @@
               <archive>
                 <manifest>
                   <addClasspath>true</addClasspath>
-     <mainClass>ModoDeJuego.ModoArena</mainClass>
+     <mainClass>ModoDeJuego.InicioJuego</mainClass>
                 </manifest>
               </archive>
             </configuration>

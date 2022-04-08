@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @author Jonwil
  */
 public class Mascotas implements Cloneable{
-    
+//    
     private String NombreMascota;
     private double unidadesDeDanoInicial;
     private double unidadesDeVidaInicial;

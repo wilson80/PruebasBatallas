@@ -15,17 +15,16 @@ import java.util.Scanner;
 public class CamposDeJuego {
     
     private Mascotas[] mascotasCampo;
+    private int campoSeleccionado;
     
-    public CamposDeJuego(Mascotas[] mascotasCampo) {
+    public CamposDeJuego(Mascotas[] mascotasCampo, int campoSeleccionado) {
         this.mascotasCampo = mascotasCampo;
+        this.campoSeleccionado=campoSeleccionado;
     }
     
     public void aplicarEfectosCampoJuego(){
-        System.out.println("Elija un Campo de Juego conforme a sus preferencias");
-        Scanner scanner = new Scanner(System.in);
-        mostrarCamposDeJuego();
-        int seleccionCampo= scanner.nextInt();
-        switch(seleccionCampo){
+//        System.out.println("Elija nextInt();
+        switch(campoSeleccionado){
             case 1:                
                 pantano();
                 break;
@@ -167,20 +166,7 @@ public class CamposDeJuego {
     
     
     
-    public void mostrarCamposDeJuego(){
-        System.out.println("Debido a que existen diferentes tipos de mascotas, al iniciar una batalla puede seleccionarse un\n" +
-"tipo de campo el cual dará una bonificación a todos los animales de un tipo específico, los campos por\n" +
-"defecto son:\n" +
-" 1. Pantano: \n            Los animales tipo reptil ganarán (+1/+1) por cada animal reptil en batalla\n" +
-" 2. Nubes: \n            Los animales tipo volador ganarán (+1/+1) por cada animal volador en batalla\n" +
-" 3. Mar: \n            Los animales de tipo acuático ganarán (+1/+1) por cada animal acuático en batalla\n" +
-" 4. Bosque: \n            Los animales tipo terrestre/mamífero tendrán un buff de (+2/0) por cada tipo terrestre\n" +
-"            (aplica solo a terrestres) y (0/+2) por cada tipo mamífero (aplica solo a mamíferos), los animales\n" +
-"            tipo solitario serán nerfeados tal que su daño al atacar será reducido en un 20%.\n" +
-" 5. Granja: \n            buff a doméstico/mamífero -> nerfeo a solitario\n" +
-" 6. <Sin campo> : \n            Los solitarios ganan una bonificación de (+3/+3) si solo hay uno en el equipo.\n" +
-" 7. Sabana: \n            Los Desérticos ganan (0/+1) extra por cada alimento que se les de.");
-    }
+    
     
     
     
